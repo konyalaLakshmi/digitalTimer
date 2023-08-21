@@ -1,0 +1,136 @@
+/* Write your CSS here */
+.bg {
+  height: 100vh;
+  padding: 20px;
+  background-image: linear-gradient(
+    to-right,
+    #cffcf1,
+    #cffcf1,
+    #cffcf1,
+    #ffffff
+  );
+  font-family: 'Roboto';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1 {
+  font-size: 24px;
+  color: #000000;
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.dContainer {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/digital-timer-elapsed-bg.png');
+  height: 180px;
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.co {
+  height: 90px;
+  width: 120px;
+  border: 0px solid #ffffff;
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.h {
+  font-size: 20px;
+  color: #00d9f5;
+  font-weight: bold;
+  margin: 2px;
+}
+.para {
+  color: #000000;
+  font-size: 18px;
+  font-weight: bold;
+}
+.control-container {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  padding: 10px;
+  height: 180px;
+  width: 230px;
+}
+.bContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  border: 0px solid none;
+  justify-content: space-between;
+}
+.b {
+  height: 40px;
+  width: 80px;
+  display: flex;
+  flex-direction: row;
+  margin: 8px;
+  border: 0px solid none;
+}
+.img {
+  height: 20px;
+  width: 28px;
+  margin-right: 10px;
+}
+.bText {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+.time-increase-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 0px solid none;
+}
+.p1 {
+  font-size: 14px;
+  color: black;
+  font-weight: black;
+  text-align: center;
+  margin: 5px;
+}
+.increase-decrease {
+  display: flex;
+  flex-direction: row;
+}
+.db {
+  height: 25px;
+  width: 30px;
+  background-color: transparent;
+  border: 0px solid transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+.text {
+  background-color: #00d9f5;
+  border: 0px solid transparent;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  padding: 5px;
+  margin-left: 14px;
+  margin-right: 14px;
+}
