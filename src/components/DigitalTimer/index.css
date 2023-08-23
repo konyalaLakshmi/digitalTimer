@@ -2,18 +2,8 @@
 .bg {
   height: 100vh;
   padding: 20px;
-  background-image: linear-gradient(
-    to-right,
-    #cffcf1,
-    #cffcf1,
-    #cffcf1,
-    #ffffff
-  );
+  background-image: linear-gradient(#cffcf1, #cffcf1, #cffcf1, #ffffff);
   font-family: 'Roboto';
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .h1 {
@@ -21,25 +11,32 @@
   color: #000000;
   text-align: center;
 }
+
 .container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
 }
-.dContainer {
-  background-image: url('https://assets.ccbp.in/frontend/react-js/digital-timer-elapsed-bg.png');
+.img-container {
+  background-image: URL('https://assets.ccbp.in/frontend/react-js/digital-timer-elapsed-bg.png');
+  background-position: center;
   height: 180px;
   width: 250px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-radius: 15px;
+  margin-right: 25px;
 }
 .co {
   height: 90px;
   width: 120px;
   border: 0px solid #ffffff;
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,8 +73,11 @@
   width: 80px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin: 8px;
-  border: 0px solid none;
+  background-color: transparent;
+  border: 0px solid transparent;
 }
 .img {
   height: 20px;
@@ -94,17 +94,19 @@
   flex-direction: column;
   padding: 20px;
   border: 0px solid none;
+  margin-left: 25px;
 }
 .p1 {
   font-size: 14px;
   color: black;
   font-weight: black;
-  text-align: center;
-  margin: 5px;
+  margin-left: 15px;
 }
 .increase-decrease {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .db {
   height: 25px;
@@ -121,7 +123,7 @@
 }
 .text {
   background-color: #00d9f5;
-  border: 0px solid transparent;
+  border: 0px solid none;
   border-radius: 5px;
   display: flex;
   flex-direction: row;

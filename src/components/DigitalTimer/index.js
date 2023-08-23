@@ -6,12 +6,62 @@ import './index.css'
 class DigitalTimer extends Component {
   state = {isTimeInProgress: false, timeElapsedSeconds: 0, timeInMinutes: 25}
 
-  componentWillUnmount = () => {
+  componentWillUnmount() {
     this.clearTimer()
   }
 
   clearTimer = () => {
     clearInterval(this.timerId)
+  }
+
+  onDecrease = () => {
+    const {timeInMinutes} = this.state
+    if (timeInMinutes > 1) {
+      this.setState(prev => ({timeInMinutes: prev.timeInMinutes - 1}))
+    }
+  }
+
+  onIncrease = () => {
+    this.setState(prev => ({timeInMinutes: prev.timeInMinutes + 1}))
+  }
+
+  renderIncreaseController = () => {
+    const {timeElapsedSeconds, timeInMinutes} = this.state
+    const isBtnDisabled = timeElapsedSeconds > 0
+
+    return (
+      <div className="time-increase-container">
+        <p className="p1">Set Timer limit</p>
+        <div className="increase-decrease">
+          <button
+            className="db"
+            disabled={isBtnDisabled}
+            type="button"
+            onClick={this.onDecrease}
+          >
+            -
+          </button>
+          <p className="text">{timeInMinutes}</p>
+          <button
+            className="db"
+            disabled={isBtnDisabled}
+            type="button"
+            onClick={this.onIncrease}
+          >
+            +
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  resetTimer = () => {
+    this.clearTimer()
+    this.setState({
+      isTimeInProgress: false,
+      timeElapsedSeconds: 0,
+      timeInMinutes: 25,
+    })
   }
 
   increaseSeconds = () => {
@@ -37,18 +87,9 @@ class DigitalTimer extends Component {
     if (isTimeInProgress) {
       this.clearTimer()
     } else {
-      this.timerId = this.setState(this.increaseSeconds(), 1000)
+      this.timerId = this.setState(this.increaseSeconds, 1000)
     }
     this.setState(prev => ({isTimeInProgress: !prev.isTimeInProgress}))
-  }
-
-  resetTimer = () => {
-    this.clearTimer()
-    this.setState({
-      isTimeInProgress: false,
-      timeElapsedSeconds: 0,
-      timeInMinutes: 25,
-    })
   }
 
   timerController = () => {
@@ -57,15 +98,16 @@ class DigitalTimer extends Component {
     const imgUrl = isTimeInProgress
       ? 'https://assets.ccbp.in/frontend/react-js/pause-icon-img.png'
       : 'https://assets.ccbp.in/frontend/react-js/play-icon-img.png'
+
     const altText = isTimeInProgress ? 'pause icon' : 'play icon'
 
     return (
       <div className="bContainer">
-        <button className="b" type="button" onClick={this.startStopTimer()}>
+        <button className="b" type="button" onClick={this.startStopTimer}>
           <img src={imgUrl} alt={altText} className="img" />
           <p className="bText">{isTimeInProgress ? 'Pause' : 'Start'}</p>
         </button>
-        <button className="b" type="button" onClick={this.resetTimer()}>
+        <button className="b" type="button" onClick={this.resetTimer}>
           <img
             src="https://assets.ccbp.in/frontend/react-js/reset-icon-img.png"
             alt="reset icon"
@@ -73,47 +115,6 @@ class DigitalTimer extends Component {
           />
           <p className="bText">Reset</p>
         </button>
-      </div>
-    )
-  }
-
-  onDecrease = () => {
-    const {timeElapsedSeconds} = this.state
-    if (timeElapsedSeconds > 1) {
-      this.setState(prev => ({timeElapsedSeconds: prev.timeElapsedSeconds - 1}))
-    }
-  }
-
-  onIncrease = () => {
-    this.setState(prev => ({timeInMinutes: prev.timeInMinutes + 1}))
-  }
-
-  renderIncreaseController = () => {
-    const {timeElapsedSeconds, timeInMinutes} = this.state
-    const isBtnDisabled = timeElapsedSeconds > 0
-
-    return (
-      <div className="time-increase-container">
-        <p className="p1">Set Timer limit</p>
-        <div className="increase-decrease">
-          <button
-            className="db"
-            disabled={isBtnDisabled}
-            type="button"
-            onClick={this.onDecrease()}
-          >
-            _
-          </button>
-          <div className="text">{timeInMinutes}</div>
-          <button
-            className="db"
-            disabled={isBtnDisabled}
-            type="button"
-            onClick={this.onIncrease()}
-          >
-            +
-          </button>
-        </div>
       </div>
     )
   }
@@ -140,8 +141,8 @@ class DigitalTimer extends Component {
       <div className="bg">
         <h1 className="h1">Digital Timer</h1>
         <div className="container">
-          <div className="dContainer">
-            <div className="c">
+          <div className="img-container">
+            <div className="co">
               <h1 className="h">{this.getTimeFormat()}</h1>
               <p className="para">{labelText}</p>
             </div>
