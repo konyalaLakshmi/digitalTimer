@@ -87,7 +87,7 @@ class DigitalTimer extends Component {
     if (isTimeInProgress) {
       this.clearTimer()
     } else {
-      this.timerId = this.setInterval(this.increaseSeconds, 1000)
+      this.timerId = setInterval(this.increaseSeconds, 1000)
     }
     this.setState(prev => ({isTimeInProgress: !prev.isTimeInProgress}))
   }
